@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'menu_screen.dart';
 import '../services/auth_service.dart';
+import '../components/custom_text_field.dart';
+import '../components/login_button.dart';
+import '../components/error_message.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -24,51 +26,27 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (errorMessage != null)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: Text(
-                  errorMessage!,
-                  style: TextStyle(color: Colors.red),
-                ),
-              ),
-            TextField(
+            ErrorMessage(message: errorMessage),
+            CustomTextField(
               controller: emailController,
-              decoration: InputDecoration(
-                labelText: 'Usuário',
-                border: OutlineInputBorder(),
-              ),
+              label: 'Usuário',
             ),
             SizedBox(height: 20),
-            TextField(
+            CustomTextField(
               controller: passwordController,
+              label: 'Senha',
               obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'Senha',
-                border: OutlineInputBorder(),
-              ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () async {
-                final String? error = await authService.login(
-                  emailController.text,
-                  passwordController.text,
-                );
-
-                if (error == null) {
-                  // Login bem-sucedido
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => MenuScreen()),
-                  );
-                } else {
-                  // Exibe mensagem de erro
-                  setState(() {
-                    errorMessage = error;
-                  });
-                }
+            LoginButton(
+              authService: authService,
+              emailController: emailController,
+              passwordController: passwordController,
+              onError: (String? error) {
+                setState(() {
+                  errorMessage = error;
+                });
               },
-              child: Text('Entrar'),
             ),
           ],
         ),
