@@ -66,8 +66,8 @@ class CourseScreen extends StatelessWidget {
                       const SizedBox(width: 16),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: Image.network(
-                          'https://via.placeholder.com/100', // Substitua pela URL ou imagem correta
+                        child: Image.asset(
+                          'assets/images/menina.jpeg',
                           height: 80,
                           width: 80,
                           fit: BoxFit.cover,

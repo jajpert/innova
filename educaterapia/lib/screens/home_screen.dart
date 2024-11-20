@@ -183,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: 6, // Número de categorias
                         itemBuilder: (context, index) {
                           return _buildCategoryCard(
-                            imagePath: 'assets/images/category_$index.png',
+                            imagePath: 'assets/images/menina.jpeg',
                             title: 'Lorem Ipsum',
                             subtitle: '${(index + 1) * 5} Cursos',
                           );

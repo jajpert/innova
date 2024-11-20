@@ -5,9 +5,9 @@ class WelcomeImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      'https://example.com/image.png', // Substitua pela URL da sua imagem
-      height: 250,
+    return Image.asset(
+      'assets/images/menina.jpeg',
+      height: 350,
     );
   }
 }

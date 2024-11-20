@@ -18,7 +18,7 @@ class PremiumScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 60), // Espaço abaixo do botão "Pular"
+                const SizedBox(height: 60),
                 const HeaderText(text: "Premium"),
                 const SizedBox(height: 16),
                 const Text(
@@ -32,7 +32,7 @@ class PremiumScreen extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Image.asset(
-                      'assets/images/student.png', // Adicione sua imagem na pasta assets
+                      'assets/images/menina.jpeg',
                       fit: BoxFit.cover,
                     ),
                   ),
